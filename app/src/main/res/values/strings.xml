@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BookCover Wallpaper</string>
+    <string name="app_name_cn">书籍封面壁纸</string>
+
+    <!-- 状态 -->
+    <string name="status_running">✓ 正在监测阅读应用</string>
+    <string name="status_waiting">✓ 服务运行中，等待阅读应用</string>
+    <string name="status_disabled">✗ 服务未启用</string>
+    <string name="status_no_permission">⚠ 需要授予「使用情况访问」权限</string>
+
+    <!-- 设置项 -->
+    <string name="title_service">启用服务</string>
+    <string name="desc_service">自动检测阅读应用并更新锁屏封面</string>
+    <string name="title_grayscale">灰度模式</string>
+    <string name="desc_grayscale">将封面转为灰度，优化电纸书显示效果</string>
+    <string name="title_book_info">显示书名</string>
+    <string name="desc_book_info">在封面底部叠加书名信息</string>
+    <string name="title_check_interval">检测间隔</string>
+    <string name="title_scan_dirs">书籍扫描目录</string>
+    <string name="title_custom_readers">自定义阅读器</string>
+    <string name="title_current_book">当前书籍</string>
+    <string name="title_cover_preview">封面预览</string>
+    <string name="unknown_book">未检测到</string>
+
+    <!-- 按钮 -->
+    <string name="btn_add_dir">添加目录</string>
+    <string name="btn_add_reader">添加阅读器</string>
+    <string name="btn_pick_cover">选择封面</string>
+    <string name="btn_check_now">立即检测</string>
+    <string name="btn_restore">恢复上次封面</string>
+    <string name="btn_grant">去授权</string>
+
+    <!-- 权限 -->
+    <string name="permission_usage_title">需要「使用情况访问」权限</string>
+    <string name="permission_usage_desc">用于检测当前前台是否为阅读应用。请在设置中授权后返回。</string>
+    <string name="permission_storage_title">需要存储权限</string>
+    <string name="permission_storage_desc">用于读取电子书文件并提取封面。</string>
+
+    <!-- 通知渠道 -->
+    <string name="channel_name">封面更新通知</string>
+    <string name="channel_desc">当检测到新书籍时发送通知</string>
+
+    <!-- 对话框 -->
+    <string name="dialog_add_dir">添加扫描目录</string>
+    <string name="dialog_add_reader">添加阅读器包名</string>
+    <string name="dialog_reader_hint">com.example.reader</string>
+    <string name="btn_add">添加</string>
+    <string name="btn_cancel">取消</string>
+</resources>

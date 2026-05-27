@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="24dp"
+        android:paddingBottom="32dp">
+
+        <!-- 标题栏 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/app_name_cn"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorTextPrimary" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="@string/status_disabled" />
+        </LinearLayout>
+
+        <!-- 封面预览 -->
+        <LinearLayout style="@style/CardStyle"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                style="@style/TitleTextStyle"
+                android:text="@string/title_cover_preview" />
+
+            <ImageView
+                android:id="@+id/iv_cover_preview"
+                android:layout_width="120dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="12dp"
+                android:scaleType="centerCrop"
+                android:background="@color/colorDivider"
+                android:src="@drawable/ic_book_placeholder" />
+
+            <TextView
+                android:id="@+id/tv_current_book"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/unknown_book"
+                android:textSize="14sp"
+                android:textColor="@color/colorTextSecondary"
+                android:maxWidth="200dp"
+                android:singleLine="true"
+                android:ellipsize="middle" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_pick_cover"
+                    style="@style/ButtonSmallStyle"
+                    android:text="@string/btn_pick_cover" />
+
+                <Button
+                    android:id="@+id/btn_restore"
+                    style="@style/ButtonSmallStyle"
+                    android:layout_marginStart="8dp"
+                    android:background="@color/colorTextSecondary"
+                    android:text="@string/btn_restore" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 权限提示 -->
+        <LinearLayout
+            android:id="@+id/layout_permission_usage"
+            style="@style/CardStyle"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/permission_usage_title"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWarning" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/permission_usage_desc"
+                android:textSize="13sp"
+                android:textColor="@color/colorTextSecondary" />
+
+            <Button
+                android:id="@+id/btn_permission_usage"
+                style="@style/ButtonSmallStyle"
+                android:layout_marginTop="8dp"
+                android:text="@string/btn_grant" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_permission_storage"
+            style="@style/CardStyle"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/permission_storage_title"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWarning" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/permission_storage_desc"
+                android:textSize="13sp"
+                android:textColor="@color/colorTextSecondary" />
+
+            <Button
+                android:id="@+id/btn_permission_storage"
+                style="@style/ButtonSmallStyle"
+                android:layout_marginTop="8dp"
+                android:text="@string/btn_grant" />
+        </LinearLayout>
+
+        <!-- 服务开关 -->
+        <LinearLayout style="@style/CardStyle"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TitleTextStyle"
+                    android:text="@string/title_service" />
+
+                <TextView
+                    style="@style/DescTextStyle"
+                    android:text="@string/desc_service" />
+            </LinearLayout>
+
+            <Switch
+                android:id="@+id/switch_enabled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- 灰度模式 -->
+        <LinearLayout style="@style/CardStyle"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TitleTextStyle"
+                    android:text="@string/title_grayscale" />
+
+                <TextView
+                    style="@style/DescTextStyle"
+                    android:text="@string/desc_grayscale" />
+            </LinearLayout>
+
+            <Switch
+                android:id="@+id/switch_grayscale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- 显示书名 -->
+        <LinearLayout style="@style/CardStyle"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TitleTextStyle"
+                    android:text="@string/title_book_info" />
+
+                <TextView
+                    style="@style/DescTextStyle"
+                    android:text="@string/desc_book_info" />
+            </LinearLayout>
+
+            <Switch
+                android:id="@+id/switch_book_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- 检测间隔 -->
+        <LinearLayout style="@style/CardStyle"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TitleTextStyle"
+                    android:text="@string/title_check_interval" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_interval_minus"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@color/colorDivider"
+                    android:text="−"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorTextPrimary" />
+
+                <TextView
+                    android:id="@+id/tv_check_interval"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="5 秒"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/btn_interval_plus"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@color/colorDivider"
+                    android:text="+"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorTextPrimary" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 立即检测 -->
+        <LinearLayout style="@style/CardStyle"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_check_now"
+                style="@style/ButtonSmallStyle"
+                android:text="@string/btn_check_now" />
+        </LinearLayout>
+
+        <!-- 扫描目录 -->
+        <LinearLayout style="@style/CardStyle"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TitleTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/title_scan_dirs" />
+
+                <Button
+                    android:id="@+id/btn_add_dir"
+                    style="@style/ButtonSmallStyle"
+                    android:text="@string/btn_add_dir" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_scan_dirs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical" />
+        </LinearLayout>
+
+        <!-- 自定义阅读器 -->
+        <LinearLayout style="@style/CardStyle"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TitleTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/title_custom_readers" />
+
+                <Button
+                    android:id="@+id/btn_add_reader"
+                    style="@style/ButtonSmallStyle"
+                    android:text="@string/btn_add_reader" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_custom_readers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
