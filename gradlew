@@ -124,5 +124,4 @@ fi
 
 # Now execute the java command
 exec "$JAVACMD" "$@" -classpath "$CLASSPATH" \
-    org.gradle.wrapper.GradleWrapperMain \
-    "$@"
+    org.gradle.wrapper.GradleWrapperMain
