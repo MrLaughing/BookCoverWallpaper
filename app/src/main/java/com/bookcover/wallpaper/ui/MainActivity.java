@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void requestUsageStatsPermission() {
-        Intent intent = new Intent(Settings.ACTION_USAGE_STATS_SETTINGS);
+        Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
         try {
             startActivityForResult(intent, REQUEST_USAGE_STATS);
         } catch (Exception e) {
