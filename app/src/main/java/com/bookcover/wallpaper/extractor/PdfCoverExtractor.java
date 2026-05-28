@@ -1,14 +1,11 @@
 package com.bookcover.wallpaper.extractor;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.RectF;
+import android.graphics.pdf.PdfRenderer;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
-import android.pdf.PdfRenderer;
 import android.util.Log;
 
 import java.io.File;
