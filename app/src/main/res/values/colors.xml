@@ -12,4 +12,5 @@
     <color name="colorWarning">#FF9800</color>
     <color name="colorError">#F44336</color>
     <color name="colorBorder">#DDDDDD</color>
+    <color name="ic_launcher_background">#333333</color>
 </resources>
