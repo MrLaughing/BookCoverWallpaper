@@ -72,16 +72,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        prefs = new PrefsManager(this);
-        appDetector = new ForegroundAppDetector(this);
-        wallpaperHelper = new WallpaperHelper(this);
-
-        initViews();
-        loadSettings();
-        checkPermissions();
-        updateStatus();
+        try {
+            setContentView(R.layout.activity_main);
+            prefs = new PrefsManager(this);
+            appDetector = new ForegroundAppDetector(this);
+            wallpaperHelper = new WallpaperHelper(this);
+            initViews();
+            loadSettings();
+            checkPermissions();
+            updateStatus();
+        } catch (Exception e) {
+            Log.e(TAG, "初始化失败", e);
+            Toast.makeText(this, "应用初始化失败: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 
     private void initViews() {
@@ -193,17 +196,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadCoverPreview() {
-        String coverPath = wallpaperHelper.getCoverCachePath();
-        File coverFile = new File(coverPath);
-        if (coverFile.exists()) {
-            Bitmap bitmap = BitmapFactory.decodeFile(coverPath);
-            if (bitmap != null) {
-                ivCoverPreview.setImageBitmap(bitmap);
-                ivCoverPreview.setVisibility(View.VISIBLE);
-                return;
+        try {
+            String coverPath = wallpaperHelper.getCoverCachePath();
+            File coverFile = new File(coverPath);
+            if (coverFile.exists()) {
+                Bitmap bitmap = BitmapFactory.decodeFile(coverPath);
+                if (bitmap != null) {
+                    ivCoverPreview.setImageBitmap(bitmap);
+                    ivCoverPreview.setVisibility(View.VISIBLE);
+                    return;
+                }
             }
+            ivCoverPreview.setImageResource(R.drawable.ic_book_placeholder);
+        } catch (Exception e) {
+            Log.e(TAG, "加载封面预览失败", e);
+            ivCoverPreview.setImageResource(R.drawable.ic_book_placeholder);
         }
-        ivCoverPreview.setImageResource(R.drawable.ic_book_placeholder);
     }
 
     private void checkPermissions() {

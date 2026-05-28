@@ -95,7 +95,12 @@ public class WallpaperHelper {
      * 获取封面缓存路径
      */
     public String getCoverCachePath() {
-        File dir = new File(context.getExternalFilesDir(null), "covers");
+        File externalDir = context.getExternalFilesDir(null);
+        if (externalDir == null) {
+            // 使用内部存储作为备用
+            externalDir = context.getFilesDir();
+        }
+        File dir = new File(externalDir, "covers");
         if (!dir.exists()) {
             dir.mkdirs();
         }
